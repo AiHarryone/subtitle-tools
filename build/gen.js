@@ -702,6 +702,7 @@ function pageShell(p) {
 <meta name="description" content="${attr(p.desc)}">
 <link rel="canonical" href="${canonical}">
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta name="msvalidate.01" content="E62785F51D89A3BD3AFBB2BC2BB07BF9">
 <meta name="theme-color" content="#0b0f19">
 <meta property="og:type" content="website">
 <meta property="og:title" content="${attr(p.title)}">

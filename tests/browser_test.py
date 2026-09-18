@@ -21,6 +21,7 @@ import sys
 import threading
 import time
 from pathlib import Path
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
@@ -79,6 +80,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--port", type=int, default=8899)
     ap.add_argument("--headed", action="store_true")
+    ap.add_argument("--base", default="", help="直接测线上的站点（跳过本地服务），例如 https://aiharryone.github.io/subtitle-tools")
     args = ap.parse_args()
 
     from playwright.sync_api import sync_playwright
@@ -88,8 +90,8 @@ def main() -> int:
     srt_path = TMP / "sample2.srt"
     srt_path.write_text(SRT_SAMPLE, encoding="utf-8")
 
-    httpd = serve(args.port)
-    base = f"http://127.0.0.1:{args.port}"
+    httpd = None if args.base else serve(args.port)
+    base = args.base.rstrip("/") or f"http://127.0.0.1:{args.port}"
     fails: list[str] = []
     reqs: list[str] = []
 
@@ -185,9 +187,9 @@ def main() -> int:
         page.wait_for_selector(".card.ready", timeout=8000)
         page.click("#run")
         page.wait_for_selector(".card.done", timeout=10000)
-        external = [u for u in reqs if "127.0.0.1" not in u]
+        external = [u for u in reqs if "127.0.0.1" not in u and urlparse(u).netloc == urlparse(base).netloc and "/assets/" in u]
         if external:
-            fails.append("转换过程出现了外部请求（不应有任何后端）：" + ", ".join(external[:3]))
+            fails.append("转换过程出现了同域资源请求以外的东西（不应有任何后端）：" + ", ".join(external[:3]))
 
         # ---- 6. file:// 离线可用（隐私页声称可离线） -----------------
         page.goto((DIST / "index.html").as_uri(), wait_until="load")
@@ -200,7 +202,8 @@ def main() -> int:
             fails.append("file:// 直接打开时无法转换（离线声明不成立）")
 
         b.close()
-    httpd.shutdown()
+    if httpd:
+        httpd.shutdown()
 
     print(f"请求数（转换期间）：{len(reqs)}，其中外部请求：{len([u for u in reqs if '127.0.0.1' not in u])}")
     if fails:
