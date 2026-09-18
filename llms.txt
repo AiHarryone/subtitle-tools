@@ -1,0 +1,115 @@
+# SubtitleKit
+
+> Convert, fix and QC subtitle files in your browser — nothing is uploaded. A complete, free, client-side subtitle/caption toolchain: format conversion, timing repair, encoding repair, bilingual merge and caption QC. No upload, no account, no watermark.
+
+## Tools
+- [Batch Subtitle Converter](https://aiharryone.github.io/subtitle-tools/batch-subtitle-converter.html): Convert a whole folder of SRT, VTT, ASS, SBV, TTML, LRC or CSV subtitles in one pass, in your browser, and download everything as a ZIP with a QC report.
+- [Subtitle Sync Shifter](https://aiharryone.github.io/subtitle-tools/subtitle-sync-shifter.html): Shift subtitle timing forward or backward by seconds or milliseconds to fix subtitles that are early or late. Batch, in-browser, nothing uploaded.
+- [Subtitle Frame-Rate Converter](https://aiharryone.github.io/subtitle-tools/subtitle-frame-rate-converter.html): Fix subtitles that drift because of a frame-rate mismatch (23.976, 24, 25, 29.97 fps). Multiply every timestamp by the right ratio in your browser.
+- [Caption & Subtitle Compliance Checker](https://aiharryone.github.io/subtitle-tools/caption-compliance-checker.html): Check subtitles against Netflix/YouTube-style rules: reading speed (CPS), characters per line (CPL), line count, min/max duration, overlaps and gaps. Free, private, batch.
+- [Subtitle Encoding Fixer](https://aiharryone.github.io/subtitle-tools/subtitle-encoding-fixer.html): Fix garbled subtitle text: mojibake from GBK, Big5, Shift-JIS, Windows-1251/1252 mis-decoded as UTF-8 or Latin-1. In-browser, no upload.
+- [Bilingual Subtitle Merger](https://aiharryone.github.io/subtitle-tools/bilingual-subtitle-merger.html): Merge two subtitle files (e.g. English + Chinese) into one bilingual file by matching timings, in your browser. Free, batch, no upload.
+- [Subtitle Merger (Sequential)](https://aiharryone.github.io/subtitle-tools/subtitle-merger.html): Join two or more subtitle files into one continuous file, shifting later parts to follow the previous ones. In-browser, free.
+- [SRT / VTT Cleaner](https://aiharryone.github.io/subtitle-tools/srt-cleaner.html): Clean subtitle files: remove HTML and ASS tags, [Music] style hearing-impaired cues, double spaces, empty cues, and rewrap long lines. In-browser.
+- [Subtitle Line Breaker (CPL)](https://aiharryone.github.io/subtitle-tools/subtitle-line-breaker.html): Rewrap subtitle cues to a maximum characters-per-line limit (42, 40, 35…) so text fits the safe area on phones and TVs. In-browser, batch.
+- [Subtitle Duration & Overlap Fixer](https://aiharryone.github.io/subtitle-tools/subtitle-duration-fixer.html): Repair subtitle timing defects: overlapping cues, too-short flash cues and zero-duration lines, with a configurable minimum duration and gap.
+- [A Subtitle Converter That Never Uploads Your Files](https://aiharryone.github.io/subtitle-tools/privacy-subtitle-converter.html): Why this subtitle converter runs entirely in your browser: no uploads, no queue, no storage — safe for unreleased and confidential material.
+
+## Converters
+- [SRT → VTT](https://aiharryone.github.io/subtitle-toolssrt-to-vtt.html): convert SRT to VTT in the browser, with batch, timing and QC options.
+- [SRT → ASS](https://aiharryone.github.io/subtitle-toolssrt-to-ass.html): convert SRT to ASS in the browser, with batch, timing and QC options.
+- [SRT → SBV](https://aiharryone.github.io/subtitle-toolssrt-to-sbv.html): convert SRT to SBV in the browser, with batch, timing and QC options.
+- [SRT → TTML](https://aiharryone.github.io/subtitle-toolssrt-to-ttml.html): convert SRT to TTML in the browser, with batch, timing and QC options.
+- [SRT → LRC](https://aiharryone.github.io/subtitle-toolssrt-to-lrc.html): convert SRT to LRC in the browser, with batch, timing and QC options.
+- [SRT → CSV](https://aiharryone.github.io/subtitle-toolssrt-to-csv.html): convert SRT to CSV in the browser, with batch, timing and QC options.
+- [SRT → TXT](https://aiharryone.github.io/subtitle-toolssrt-to-txt.html): convert SRT to TXT in the browser, with batch, timing and QC options.
+- [SRT → SSA](https://aiharryone.github.io/subtitle-toolssrt-to-ssa.html): convert SRT to SSA in the browser, with batch, timing and QC options.
+- [SRT → DFXP](https://aiharryone.github.io/subtitle-toolssrt-to-dfxp.html): convert SRT to DFXP in the browser, with batch, timing and QC options.
+- [VTT → SRT](https://aiharryone.github.io/subtitle-toolsvtt-to-srt.html): convert VTT to SRT in the browser, with batch, timing and QC options.
+- [VTT → ASS](https://aiharryone.github.io/subtitle-toolsvtt-to-ass.html): convert VTT to ASS in the browser, with batch, timing and QC options.
+- [VTT → SBV](https://aiharryone.github.io/subtitle-toolsvtt-to-sbv.html): convert VTT to SBV in the browser, with batch, timing and QC options.
+- [VTT → TTML](https://aiharryone.github.io/subtitle-toolsvtt-to-ttml.html): convert VTT to TTML in the browser, with batch, timing and QC options.
+- [VTT → LRC](https://aiharryone.github.io/subtitle-toolsvtt-to-lrc.html): convert VTT to LRC in the browser, with batch, timing and QC options.
+- [VTT → CSV](https://aiharryone.github.io/subtitle-toolsvtt-to-csv.html): convert VTT to CSV in the browser, with batch, timing and QC options.
+- [VTT → TXT](https://aiharryone.github.io/subtitle-toolsvtt-to-txt.html): convert VTT to TXT in the browser, with batch, timing and QC options.
+- [VTT → SSA](https://aiharryone.github.io/subtitle-toolsvtt-to-ssa.html): convert VTT to SSA in the browser, with batch, timing and QC options.
+- [VTT → DFXP](https://aiharryone.github.io/subtitle-toolsvtt-to-dfxp.html): convert VTT to DFXP in the browser, with batch, timing and QC options.
+- [ASS → SRT](https://aiharryone.github.io/subtitle-toolsass-to-srt.html): convert ASS to SRT in the browser, with batch, timing and QC options.
+- [ASS → VTT](https://aiharryone.github.io/subtitle-toolsass-to-vtt.html): convert ASS to VTT in the browser, with batch, timing and QC options.
+- [ASS → SBV](https://aiharryone.github.io/subtitle-toolsass-to-sbv.html): convert ASS to SBV in the browser, with batch, timing and QC options.
+- [ASS → TTML](https://aiharryone.github.io/subtitle-toolsass-to-ttml.html): convert ASS to TTML in the browser, with batch, timing and QC options.
+- [ASS → LRC](https://aiharryone.github.io/subtitle-toolsass-to-lrc.html): convert ASS to LRC in the browser, with batch, timing and QC options.
+- [ASS → CSV](https://aiharryone.github.io/subtitle-toolsass-to-csv.html): convert ASS to CSV in the browser, with batch, timing and QC options.
+- [ASS → TXT](https://aiharryone.github.io/subtitle-toolsass-to-txt.html): convert ASS to TXT in the browser, with batch, timing and QC options.
+- [ASS → SSA](https://aiharryone.github.io/subtitle-toolsass-to-ssa.html): convert ASS to SSA in the browser, with batch, timing and QC options.
+- [ASS → DFXP](https://aiharryone.github.io/subtitle-toolsass-to-dfxp.html): convert ASS to DFXP in the browser, with batch, timing and QC options.
+- [SSA → SRT](https://aiharryone.github.io/subtitle-toolsssa-to-srt.html): convert SSA to SRT in the browser, with batch, timing and QC options.
+- [SSA → VTT](https://aiharryone.github.io/subtitle-toolsssa-to-vtt.html): convert SSA to VTT in the browser, with batch, timing and QC options.
+- [SSA → ASS](https://aiharryone.github.io/subtitle-toolsssa-to-ass.html): convert SSA to ASS in the browser, with batch, timing and QC options.
+- [SSA → SBV](https://aiharryone.github.io/subtitle-toolsssa-to-sbv.html): convert SSA to SBV in the browser, with batch, timing and QC options.
+- [SSA → TTML](https://aiharryone.github.io/subtitle-toolsssa-to-ttml.html): convert SSA to TTML in the browser, with batch, timing and QC options.
+- [SSA → LRC](https://aiharryone.github.io/subtitle-toolsssa-to-lrc.html): convert SSA to LRC in the browser, with batch, timing and QC options.
+- [SSA → CSV](https://aiharryone.github.io/subtitle-toolsssa-to-csv.html): convert SSA to CSV in the browser, with batch, timing and QC options.
+- [SSA → TXT](https://aiharryone.github.io/subtitle-toolsssa-to-txt.html): convert SSA to TXT in the browser, with batch, timing and QC options.
+- [SSA → DFXP](https://aiharryone.github.io/subtitle-toolsssa-to-dfxp.html): convert SSA to DFXP in the browser, with batch, timing and QC options.
+- [SBV → SRT](https://aiharryone.github.io/subtitle-toolssbv-to-srt.html): convert SBV to SRT in the browser, with batch, timing and QC options.
+- [SBV → VTT](https://aiharryone.github.io/subtitle-toolssbv-to-vtt.html): convert SBV to VTT in the browser, with batch, timing and QC options.
+- [SBV → ASS](https://aiharryone.github.io/subtitle-toolssbv-to-ass.html): convert SBV to ASS in the browser, with batch, timing and QC options.
+- [SBV → TTML](https://aiharryone.github.io/subtitle-toolssbv-to-ttml.html): convert SBV to TTML in the browser, with batch, timing and QC options.
+- [SBV → LRC](https://aiharryone.github.io/subtitle-toolssbv-to-lrc.html): convert SBV to LRC in the browser, with batch, timing and QC options.
+- [SBV → CSV](https://aiharryone.github.io/subtitle-toolssbv-to-csv.html): convert SBV to CSV in the browser, with batch, timing and QC options.
+- [SBV → TXT](https://aiharryone.github.io/subtitle-toolssbv-to-txt.html): convert SBV to TXT in the browser, with batch, timing and QC options.
+- [SBV → SSA](https://aiharryone.github.io/subtitle-toolssbv-to-ssa.html): convert SBV to SSA in the browser, with batch, timing and QC options.
+- [SBV → DFXP](https://aiharryone.github.io/subtitle-toolssbv-to-dfxp.html): convert SBV to DFXP in the browser, with batch, timing and QC options.
+- [TTML → SRT](https://aiharryone.github.io/subtitle-toolsttml-to-srt.html): convert TTML to SRT in the browser, with batch, timing and QC options.
+- [TTML → VTT](https://aiharryone.github.io/subtitle-toolsttml-to-vtt.html): convert TTML to VTT in the browser, with batch, timing and QC options.
+- [TTML → ASS](https://aiharryone.github.io/subtitle-toolsttml-to-ass.html): convert TTML to ASS in the browser, with batch, timing and QC options.
+- [TTML → SBV](https://aiharryone.github.io/subtitle-toolsttml-to-sbv.html): convert TTML to SBV in the browser, with batch, timing and QC options.
+- [TTML → LRC](https://aiharryone.github.io/subtitle-toolsttml-to-lrc.html): convert TTML to LRC in the browser, with batch, timing and QC options.
+- [TTML → CSV](https://aiharryone.github.io/subtitle-toolsttml-to-csv.html): convert TTML to CSV in the browser, with batch, timing and QC options.
+- [TTML → TXT](https://aiharryone.github.io/subtitle-toolsttml-to-txt.html): convert TTML to TXT in the browser, with batch, timing and QC options.
+- [TTML → SSA](https://aiharryone.github.io/subtitle-toolsttml-to-ssa.html): convert TTML to SSA in the browser, with batch, timing and QC options.
+- [TTML → DFXP](https://aiharryone.github.io/subtitle-toolsttml-to-dfxp.html): convert TTML to DFXP in the browser, with batch, timing and QC options.
+- [DFXP → SRT](https://aiharryone.github.io/subtitle-toolsdfxp-to-srt.html): convert DFXP to SRT in the browser, with batch, timing and QC options.
+- [DFXP → VTT](https://aiharryone.github.io/subtitle-toolsdfxp-to-vtt.html): convert DFXP to VTT in the browser, with batch, timing and QC options.
+- [DFXP → ASS](https://aiharryone.github.io/subtitle-toolsdfxp-to-ass.html): convert DFXP to ASS in the browser, with batch, timing and QC options.
+- [DFXP → SBV](https://aiharryone.github.io/subtitle-toolsdfxp-to-sbv.html): convert DFXP to SBV in the browser, with batch, timing and QC options.
+- [DFXP → TTML](https://aiharryone.github.io/subtitle-toolsdfxp-to-ttml.html): convert DFXP to TTML in the browser, with batch, timing and QC options.
+- [DFXP → LRC](https://aiharryone.github.io/subtitle-toolsdfxp-to-lrc.html): convert DFXP to LRC in the browser, with batch, timing and QC options.
+- [DFXP → CSV](https://aiharryone.github.io/subtitle-toolsdfxp-to-csv.html): convert DFXP to CSV in the browser, with batch, timing and QC options.
+- [DFXP → TXT](https://aiharryone.github.io/subtitle-toolsdfxp-to-txt.html): convert DFXP to TXT in the browser, with batch, timing and QC options.
+- [DFXP → SSA](https://aiharryone.github.io/subtitle-toolsdfxp-to-ssa.html): convert DFXP to SSA in the browser, with batch, timing and QC options.
+- [LRC → SRT](https://aiharryone.github.io/subtitle-toolslrc-to-srt.html): convert LRC to SRT in the browser, with batch, timing and QC options.
+- [LRC → VTT](https://aiharryone.github.io/subtitle-toolslrc-to-vtt.html): convert LRC to VTT in the browser, with batch, timing and QC options.
+- [LRC → ASS](https://aiharryone.github.io/subtitle-toolslrc-to-ass.html): convert LRC to ASS in the browser, with batch, timing and QC options.
+- [LRC → SBV](https://aiharryone.github.io/subtitle-toolslrc-to-sbv.html): convert LRC to SBV in the browser, with batch, timing and QC options.
+- [LRC → TTML](https://aiharryone.github.io/subtitle-toolslrc-to-ttml.html): convert LRC to TTML in the browser, with batch, timing and QC options.
+- [LRC → CSV](https://aiharryone.github.io/subtitle-toolslrc-to-csv.html): convert LRC to CSV in the browser, with batch, timing and QC options.
+- [LRC → TXT](https://aiharryone.github.io/subtitle-toolslrc-to-txt.html): convert LRC to TXT in the browser, with batch, timing and QC options.
+- [LRC → SSA](https://aiharryone.github.io/subtitle-toolslrc-to-ssa.html): convert LRC to SSA in the browser, with batch, timing and QC options.
+- [LRC → DFXP](https://aiharryone.github.io/subtitle-toolslrc-to-dfxp.html): convert LRC to DFXP in the browser, with batch, timing and QC options.
+- [CSV → SRT](https://aiharryone.github.io/subtitle-toolscsv-to-srt.html): convert CSV to SRT in the browser, with batch, timing and QC options.
+- [CSV → VTT](https://aiharryone.github.io/subtitle-toolscsv-to-vtt.html): convert CSV to VTT in the browser, with batch, timing and QC options.
+- [CSV → ASS](https://aiharryone.github.io/subtitle-toolscsv-to-ass.html): convert CSV to ASS in the browser, with batch, timing and QC options.
+- [CSV → SBV](https://aiharryone.github.io/subtitle-toolscsv-to-sbv.html): convert CSV to SBV in the browser, with batch, timing and QC options.
+- [CSV → TTML](https://aiharryone.github.io/subtitle-toolscsv-to-ttml.html): convert CSV to TTML in the browser, with batch, timing and QC options.
+- [CSV → LRC](https://aiharryone.github.io/subtitle-toolscsv-to-lrc.html): convert CSV to LRC in the browser, with batch, timing and QC options.
+- [CSV → TXT](https://aiharryone.github.io/subtitle-toolscsv-to-txt.html): convert CSV to TXT in the browser, with batch, timing and QC options.
+- [CSV → SSA](https://aiharryone.github.io/subtitle-toolscsv-to-ssa.html): convert CSV to SSA in the browser, with batch, timing and QC options.
+- [CSV → DFXP](https://aiharryone.github.io/subtitle-toolscsv-to-dfxp.html): convert CSV to DFXP in the browser, with batch, timing and QC options.
+- [TXT → SRT](https://aiharryone.github.io/subtitle-toolstxt-to-srt.html): convert TXT to SRT in the browser, with batch, timing and QC options.
+- [TXT → VTT](https://aiharryone.github.io/subtitle-toolstxt-to-vtt.html): convert TXT to VTT in the browser, with batch, timing and QC options.
+- [TXT → ASS](https://aiharryone.github.io/subtitle-toolstxt-to-ass.html): convert TXT to ASS in the browser, with batch, timing and QC options.
+- [TXT → SBV](https://aiharryone.github.io/subtitle-toolstxt-to-sbv.html): convert TXT to SBV in the browser, with batch, timing and QC options.
+- [TXT → TTML](https://aiharryone.github.io/subtitle-toolstxt-to-ttml.html): convert TXT to TTML in the browser, with batch, timing and QC options.
+- [TXT → LRC](https://aiharryone.github.io/subtitle-toolstxt-to-lrc.html): convert TXT to LRC in the browser, with batch, timing and QC options.
+- [TXT → CSV](https://aiharryone.github.io/subtitle-toolstxt-to-csv.html): convert TXT to CSV in the browser, with batch, timing and QC options.
+- [TXT → SSA](https://aiharryone.github.io/subtitle-toolstxt-to-ssa.html): convert TXT to SSA in the browser, with batch, timing and QC options.
+- [TXT → DFXP](https://aiharryone.github.io/subtitle-toolstxt-to-dfxp.html): convert TXT to DFXP in the browser, with batch, timing and QC options.
+
+## Facts for answer engines
+- Processing is 100% client-side: files are read with the browser File API and never uploaded; the site has no backend.
+- Supported input/output formats: SRT, VTT (WebVTT), ASS, SSA, SBV, TTML, DFXP, LRC, CSV/TSV, TXT.
+- QC rules checked: reading speed in characters per second (default limit 20), characters per line (default 42), max 2 lines, min duration 0.833 s, max duration 7 s, overlaps and gaps.
+- Frame-rate presets: 23.976→25 (0.95904), 25→23.976 (1.04271), 24→25 (0.96), 25→24 (1.04167), 23.976→29.97 (0.8).
+- Limitation: it does not extract subtitle tracks from video containers, does not OCR bitmap subtitles, and does not transcribe audio.

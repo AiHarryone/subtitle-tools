@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SRT to LRC Converter — Free &amp; Private (No Upload)</title>
+<meta name="description" content="Convert SRT to LRC in your browser: batch conversion, optional timing shift, cleanup and a QC report. Files never leave your device.">
+<link rel="canonical" href="https://aiharryone.github.io/subtitle-tools/srt-to-lrc.html">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta name="theme-color" content="#0b0f19">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SRT to LRC Converter — Free &amp; Private (No Upload)">
+<meta property="og:description" content="Convert SRT to LRC in your browser: batch conversion, optional timing shift, cleanup and a QC report. Files never leave your device.">
+<meta property="og:url" content="https://aiharryone.github.io/subtitle-tools/srt-to-lrc.html">
+<meta property="og:site_name" content="SubtitleKit">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%235b8cff'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='white' font-family='sans-serif'>S</text></svg>">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I convert SRT to LRC?","acceptedAnswer":{"@type":"Answer","text":"Drag your .srt files onto the box above, pick LRC as the output format and press Convert. Everything runs in JavaScript in your browser tab — there is no upload step, no queue and no file size limit."}},{"@type":"Question","name":"Does converting SRT to LRC keep my timings?","acceptedAnswer":{"@type":"Answer","text":"Yes. Timings are parsed into integer milliseconds, then written back with the precision LRC expects ([00:01.00]). Only the container changes: cue order, start times and end times are preserved unless you turn on the timing shift or stretch options."}},{"@type":"Question","name":"Is my subtitle file uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. This tool has no backend. The conversion, cleanup and QC code is JavaScript that runs locally, so confidential or pre-release material never leaves your machine. You can even disconnect from the network after the page loads."}},{"@type":"Question","name":"What happens to SRT styling tags when I convert?","acceptedAnswer":{"@type":"Answer","text":"Inline tags that the target format supports are preserved; ones it does not support are kept as plain text so nothing is silently lost."}},{"@type":"Question","name":"Can I convert several SRT files at once?","acceptedAnswer":{"@type":"Answer","text":"Yes — drop a whole season on the page and every file is converted in one pass, then downloaded as a single ZIP with an optional QC report."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SubtitleKit — SRT to LRC Converter","applicationCategory":"MultimediaApplication","operatingSystem":"Any (browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Convert SRT to LRC in your browser: batch conversion, optional timing shift, cleanup and a QC report. Files never leave your device.","url":"https://aiharryone.github.io/subtitle-tools/srt-to-lrc.html","featureList":["subtitle format conversion","batch processing","timing shift","frame-rate stretch","caption QC (CPS/CPL)","encoding repair","bilingual merge"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Subtitle tools","item":"https://aiharryone.github.io/subtitle-tools/"},{"@type":"ListItem","position":2,"name":"SRT to LRC Converter","item":"https://aiharryone.github.io/subtitle-tools/srt-to-lrc.html"}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html">Subtitle<span>Kit</span></a>
+  <nav>
+    <a href="batch-subtitle-converter.html">Batch</a>
+    <a href="subtitle-sync-shifter.html">Sync fix</a>
+    <a href="caption-compliance-checker.html">QC check</a>
+    <a href="bilingual-subtitle-merger.html">Bilingual</a>
+    <a href="subtitle-encoding-fixer.html">Encoding</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <h1>SRT to LRC Converter</h1>
+    <p class="lede">Drop SRT files, get LRC back — batch conversion, timing tools, cleanup and a QC report, all running locally in your browser.</p>
+    <div class="badges">
+      <span class="badge">No upload — 100% in-browser</span>
+      <span class="badge">Batch + ZIP</span>
+      <span class="badge b">Free, no account</span>
+      <span class="badge b">QC report included</span>
+    </div>
+  </div>
+
+  
+<section class="panel" id="tool">
+  <div id="drop" role="button" tabindex="0" aria-label="Add subtitle files">
+    <b>Drop subtitle files here</b>
+    <div class="hint">or click to browse · SRT · VTT · ASS · SSA · SBV · TTML · DFXP · LRC · CSV · TXT · files are processed locally</div>
+    <input type="file" id="file" multiple accept=".srt,.vtt,.ass,.ssa,.sbv,.ttml,.dfxp,.xml,.lrc,.csv,.tsv,.txt" hidden>
+  </div>
+
+  <div class="grid">
+    <div>
+      <label class="field"><b>Output format</b>
+        <select id="target-format">
+          <option value="srt">SRT — SubRip Subtitle</option><option value="vtt">VTT — WebVTT</option><option value="ass">ASS — Advanced SubStation Alpha</option><option value="sbv">SBV — YouTube SBV</option><option value="ttml">TTML — Timed Text Markup Language (also .dfxp, .xml)</option><option value="lrc" selected>LRC — Lyrics file</option><option value="csv">CSV — Comma-separated spreadsheet</option><option value="txt">TXT — Plain text transcript</option><option value="ssa">SSA — SubStation Alpha (legacy)</option><option value="dfxp">DFXP — Distribution Format Exchange Profile (TTML)</option>
+        </select>
+      </label>
+      <div class="fmtbtns"><button class="fmtbtn" data-to="srt">srt</button><button class="fmtbtn" data-to="vtt">vtt</button><button class="fmtbtn" data-to="ass">ass</button><button class="fmtbtn" data-to="sbv">sbv</button><button class="fmtbtn" data-to="ttml">ttml</button><button class="fmtbtn active" data-to="lrc">lrc</button><button class="fmtbtn" data-to="csv">csv</button><button class="fmtbtn" data-to="txt">txt</button><button class="fmtbtn" data-to="ssa">ssa</button><button class="fmtbtn" data-to="dfxp">dfxp</button></div>
+
+      <label class="field" style="margin-top:16px"><b>Timing shift (seconds)</b>
+        <input type="text" id="opt-shift" value="0" inputmode="decimal" placeholder="e.g. -2.4 to make subtitles earlier">
+      </label>
+      <div class="presets">
+        <button class="preset" data-shift="-2.5">−2.5 s</button>
+        <button class="preset" data-shift="-1">−1 s</button>
+        <button class="preset" data-shift="0">0</button>
+        <button class="preset" data-shift="1">+1 s</button>
+        <button class="preset" data-shift="2.5">+2.5 s</button>
+      </div>
+
+      <label class="field" style="margin-top:14px"><b>Frame-rate stretch (multiplier)</b>
+        <input type="text" id="opt-scale" value="1" inputmode="decimal">
+      </label>
+      <div class="presets">
+        <button class="preset" data-scale="1">none</button>
+        <button class="preset" data-scale="0.95904">23.976→25</button>
+        <button class="preset" data-scale="1.04271">25→23.976</button>
+        <button class="preset" data-scale="0.96">24→25</button>
+        <button class="preset" data-scale="1.04167">25→24</button>
+        <button class="preset" data-scale="0.8">23.976→29.97</button>
+      </div>
+
+      <label class="field" style="margin-top:14px"><b>Filename suffix</b>
+        <input type="text" id="opt-suffix" value="" placeholder="e.g. -en">
+      </label>
+    </div>
+
+    <div>
+      <label class="field"><b>Cleanup</b></label>
+      <div class="checks">
+        <label class="check"><input type="checkbox" id="opt-clean" checked><span>Clean text<small>collapse double spaces, drop empty cues</small></span></label>
+        <label class="check"><input type="checkbox" id="opt-striptags"><span>Strip HTML / ASS tags<small>&lt;i&gt;, &lt;font&gt;, {\an8} …</small></span></label>
+        <label class="check"><input type="checkbox" id="opt-hearing"><span>Remove hearing-impaired cues<small>[Music], (laughs), ♪♪</small></span></label>
+        <label class="check"><input type="checkbox" id="opt-overlaps" checked><span>Repair overlaps &amp; short cues<small>min 500 ms, 40 ms gap</small></span></label>
+        <label class="check"><input type="checkbox" id="opt-qc" checked><span>Run QC (CPS / CPL / duration)<small>score + issue list + qc-report.md</small></span></label>
+      </div>
+
+      <label class="field" style="margin-top:14px"><b>Max characters per line</b>
+        <input type="number" id="opt-maxcpl" value="0" min="0" max="120">
+        <small class="note">0 = keep as authored. 42 = broadcast standard, 35 = social video.</small>
+      </label>
+
+      <label class="field"><b>Input encoding</b>
+        <select id="opt-encoding">
+          <option value="auto">Auto-detect (UTF-8 → GBK → Big5 → Shift-JIS → 1252)</option>
+          <option value="utf-8">UTF-8</option>
+          <option value="gbk">GBK / GB18030 (Chinese)</option>
+          <option value="big5">Big5 (Traditional Chinese)</option>
+          <option value="shift_jis">Shift-JIS (Japanese)</option>
+          <option value="euc-kr">EUC-KR (Korean)</option>
+          <option value="windows-1252">Windows-1252 / Latin-1</option>
+          <option value="windows-1251">Windows-1251 (Cyrillic)</option>
+        </select>
+      </label>
+
+      <label class="field"><b>Second file (merge)</b></label>
+      <div class="checks">
+        <label class="check"><input type="checkbox" id="opt-merge"><span>Use a second file<small>bilingual pairing or sequential join</small></span></label>
+      </div>
+      <div id="secondbox" style="display:none;margin-top:8px">
+        <input type="file" id="secondfile" multiple accept=".srt,.vtt,.ass,.ssa,.sbv,.ttml,.dfxp,.xml,.lrc,.csv,.tsv,.txt">
+        <div class="row" style="margin-top:8px">
+          <label class="field" style="margin:0"><b>Merge mode</b>
+            <select id="opt-mergemode">
+              <option value="pair">Bilingual — pair cues by timing</option>
+              <option value="concat">Sequential — join one after another</option>
+            </select>
+          </label>
+          <label class="field" style="margin:0"><b>Line order</b>
+            <select id="opt-mergeorder">
+              <option value="ab">Primary on top</option>
+              <option value="ba">Second on top</option>
+            </select>
+          </label>
+        </div>
+        <div id="secondlist" style="margin-top:8px"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn" id="run">Convert</button>
+    <button class="btn ghost" id="download-all" disabled>Download all as ZIP</button>
+    <button class="btn ghost" id="report-only">QC report only</button>
+    <button class="btn ghost" id="clear" style="display:none">Clear</button>
+    <span class="meta" id="count" style="color:var(--mut);font-size:13.5px"></span>
+  </div>
+  <div id="filelist"></div>
+  <p class="note">100% local: your files are read with the browser File API and never uploaded. No account, no watermark, no file-size limit.</p>
+</section>
+
+  
+  <article class="prose">
+    <h2>What SRT → LRC conversion actually changes</h2>
+    <p>SRT (SubRip) is the most widely supported subtitle format. It is plain text: an index number, a timestamp line with a comma before the milliseconds, then the caption text. Players, editors and social platforms all read it, but it carries no styling.</p>
+    <p>LRC is the lyrics format used by music players, karaoke apps and Chinese/Japanese media players. Each line carries one or more [mm:ss.xx] timestamps and there is no end time — the next timestamp ends the line.</p>
+    <p>Converting <b>SRT</b> to <b>LRC</b> means repackaging the same cues: sync the same text as timed lyrics in a music player.
+    Timing precision, line breaks and characters are kept; only the container and the features that the target format supports are rewritten.</p>
+
+    <h2>Format comparison</h2>
+    <table class="tbl">
+      <tr><th></th><th>SRT (SubRip Subtitle)</th><th>LRC (Lyrics file)</th></tr>
+      <tr><td>Extension</td><td><code>.srt</code></td><td><code>.lrc</code></td></tr>
+      <tr><td>Timing sample</td><td><code>00:00:01,000 --> 00:00:03,000</code></td><td><code>[00:01.00]</code></td></tr>
+      <tr><td>Timing separator</td><td>comma before milliseconds</td><td>bracketed [mm:ss.xx] at line start</td></tr>
+      <tr><td>Styling</td><td>none (basic <i>/<b> tags are tolerated by most players)</td><td>implicit (next line)</td></tr>
+      <tr><td>Read by</td><td>VLC, mpv, YouTube, Premiere, DaVinci, HandBrake, ffmpeg</td><td>foobar2000, Poweramp, AIMP, QQ音乐, 网易云</td></tr>
+      <tr><td>Best for</td><td>subtitles and captions that must work everywhere</td><td>turning timed lyrics into subtitles (and back)</td></tr>
+    </table>
+
+    <h2>How to convert SRT to LRC</h2>
+    <ol>
+      <li>Drop your <code>.srt</code> file(s) into the box at the top of this page — or click it to browse.</li>
+      <li>The format is detected automatically; the output is pre-set to <b>LRC</b>. Change it if you need another target.</li>
+      <li>Optional: shift the timing (± seconds), stretch it (frame-rate mismatch), rewrap long lines, strip styling, or fix overlaps.</li>
+      <li>Press <b>Convert</b>, check the QC score, then download each file or the whole batch as a ZIP.</li>
+    </ol>
+
+    <h2>Batch and QC in the same pass</h2>
+    <p>Most converters stop at "here is your file". This one also audits it: every converted cue is checked for reading speed (CPS), characters per line, line count, minimum/maximum duration, overlaps and gaps — the same rules Netflix, broadcasters and streaming platforms apply. You get a per-file score plus a downloadable <code>qc-report.md</code>, so a batch of 40 files can be verified in one pass instead of one at a time.</p>
+
+    <h2>Privacy</h2>
+    <p>Nothing is uploaded. This page is static files on a CDN; all parsing, conversion, encoding repair and QC run in your browser with the File API. Unreleased trailers, client work and personal recordings stay on your device — which is also why the tool works offline once loaded.</p>
+  </article>
+
+  <section class="faq prose"><h2>FAQ</h2><details><summary>How do I convert SRT to LRC?</summary><p>Drag your .srt files onto the box above, pick LRC as the output format and press Convert. Everything runs in JavaScript in your browser tab — there is no upload step, no queue and no file size limit.</p></details>
+<details><summary>Does converting SRT to LRC keep my timings?</summary><p>Yes. Timings are parsed into integer milliseconds, then written back with the precision LRC expects ([00:01.00]). Only the container changes: cue order, start times and end times are preserved unless you turn on the timing shift or stretch options.</p></details>
+<details><summary>Is my subtitle file uploaded to a server?</summary><p>No. This tool has no backend. The conversion, cleanup and QC code is JavaScript that runs locally, so confidential or pre-release material never leaves your machine. You can even disconnect from the network after the page loads.</p></details>
+<details><summary>What happens to SRT styling tags when I convert?</summary><p>Inline tags that the target format supports are preserved; ones it does not support are kept as plain text so nothing is silently lost.</p></details>
+<details><summary>Can I convert several SRT files at once?</summary><p>Yes — drop a whole season on the page and every file is converted in one pass, then downloaded as a single ZIP with an optional QC report.</p></details></section>
+
+  <section>
+    <h2 style="font-size:20px">Related tools</h2>
+    <div class="links">
+      <a href="srt-to-vtt.html">SRT → VTT</a><a href="srt-to-ass.html">SRT → ASS</a><a href="srt-to-sbv.html">SRT → SBV</a><a href="srt-to-ttml.html">SRT → TTML</a><a href="srt-to-csv.html">SRT → CSV</a><a href="srt-to-txt.html">SRT → TXT</a><a href="srt-to-ssa.html">SRT → SSA</a><a href="srt-to-dfxp.html">SRT → DFXP</a><a href="vtt-to-srt.html">VTT → SRT</a><a href="vtt-to-ass.html">VTT → ASS</a><a href="vtt-to-sbv.html">VTT → SBV</a><a href="vtt-to-ttml.html">VTT → TTML</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div><h4>Popular converters</h4><a href="srt-to-vtt.html">SRT → VTT</a><a href="srt-to-ass.html">SRT → ASS</a><a href="srt-to-sbv.html">SRT → SBV</a><a href="srt-to-ttml.html">SRT → TTML</a><a href="srt-to-lrc.html">SRT → LRC</a><a href="srt-to-csv.html">SRT → CSV</a><a href="srt-to-txt.html">SRT → TXT</a><a href="srt-to-ssa.html">SRT → SSA</a><a href="srt-to-dfxp.html">SRT → DFXP</a><a href="vtt-to-srt.html">VTT → SRT</a><a href="vtt-to-ass.html">VTT → ASS</a><a href="vtt-to-sbv.html">VTT → SBV</a><a href="vtt-to-ttml.html">VTT → TTML</a><a href="vtt-to-lrc.html">VTT → LRC</a></div><div><h4>Tools</h4><a href="batch-subtitle-converter.html">Batch Subtitle Converter</a><a href="subtitle-sync-shifter.html">Subtitle Sync Shifter</a><a href="subtitle-frame-rate-converter.html">Subtitle Frame-Rate Converter</a><a href="caption-compliance-checker.html">Caption & Subtitle Compliance Checker</a><a href="subtitle-encoding-fixer.html">Subtitle Encoding Fixer</a><a href="bilingual-subtitle-merger.html">Bilingual Subtitle Merger</a><a href="subtitle-merger.html">Subtitle Merger (Sequential)</a><a href="srt-cleaner.html">SRT / VTT Cleaner</a><a href="subtitle-line-breaker.html">Subtitle Line Breaker (CPL)</a><a href="subtitle-duration-fixer.html">Subtitle Duration & Overlap Fixer</a><a href="privacy-subtitle-converter.html">A Subtitle Converter That Never Uploads Your Files</a></div><div><h4>More formats</h4><a href="srt-to-sbv.html">SRT → SBV</a><a href="srt-to-ttml.html">SRT → TTML</a><a href="srt-to-lrc.html">SRT → LRC</a><a href="srt-to-csv.html">SRT → CSV</a><a href="srt-to-txt.html">SRT → TXT</a><a href="srt-to-ssa.html">SRT → SSA</a><a href="srt-to-dfxp.html">SRT → DFXP</a><a href="vtt-to-sbv.html">VTT → SBV</a><a href="vtt-to-ttml.html">VTT → TTML</a><a href="vtt-to-lrc.html">VTT → LRC</a><a href="vtt-to-csv.html">VTT → CSV</a><a href="vtt-to-txt.html">VTT → TXT</a><a href="vtt-to-ssa.html">VTT → SSA</a><a href="vtt-to-dfxp.html">VTT → DFXP</a><a href="ass-to-sbv.html">ASS → SBV</a><a href="ass-to-ttml.html">ASS → TTML</a></div>
+  </div>
+  <p style="margin-top:22px">SubtitleKit — Convert, fix and QC subtitle files in your browser — nothing is uploaded. Convert SRT, VTT, ASS/SSA, SBV, TTML/DFXP, LRC, CSV and TXT subtitles, fix sync, repair timing, check caption compliance and merge bilingual files. All processing happens in your browser.</p>
+</div></footer>
+
+<div class="toast" id="toast"></div>
+<script>window.PAGE_CFG = {"from":"srt","to":"lrc","autoRun":false,"zipName":"srt-to-lrc.zip"};</script>
+<script src="assets/subtitle-core.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
