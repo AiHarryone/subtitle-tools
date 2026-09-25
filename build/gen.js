@@ -554,6 +554,7 @@ function toolHTML(cfg, compact) {
   const fmtBtns = uniq.map((f) => `<button class="fmtbtn${cfg.to === f ? ' active' : ''}" data-to="${f}">${f}</button>`).join('');
   return `
 <section class="panel" id="tool">
+  <div class="panel-head"><h2>Drop files, pick options, convert</h2><span class="pill">runs in your browser</span></div>
   <div id="drop" role="button" tabindex="0" aria-label="Add subtitle files">
     <b>Drop subtitle files here</b>
     <div class="hint">or click to browse · SRT · VTT · ASS · SSA · SBV · TTML · DFXP · LRC · CSV · TXT · files are processed locally</div>
@@ -703,7 +704,7 @@ function pageShell(p) {
 <link rel="canonical" href="${canonical}">
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
 <meta name="msvalidate.01" content="E62785F51D89A3BD3AFBB2BC2BB07BF9">
-<meta name="theme-color" content="#0b0f19">
+<meta name="theme-color" content="#08090d">
 <meta property="og:type" content="website">
 <meta property="og:title" content="${attr(p.title)}">
 <meta property="og:description" content="${attr(p.desc)}">
@@ -718,18 +719,20 @@ ${p.faq && p.faq.length ? `<script type="application/ld+json">${JSON.stringify(f
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand" href="index.html">Subtitle<span>Kit</span></a>
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true">S</span><b>Subtitle<i>Kit</i></b></a>
   <nav>
     <a href="batch-subtitle-converter.html">Batch</a>
     <a href="subtitle-sync-shifter.html">Sync fix</a>
     <a href="caption-compliance-checker.html">QC check</a>
     <a href="bilingual-subtitle-merger.html">Bilingual</a>
     <a href="subtitle-encoding-fixer.html">Encoding</a>
+    <a class="nav-cta" href="index.html#tool">Open tool →</a>
   </nav>
 </div></header>
 
 <main class="wrap">
   <div class="hero">
+    <span class="eyebrow">Client-side subtitle toolkit</span>
     <h1>${esc(p.h1)}</h1>
     <p class="lede">${esc(p.lede)}</p>
     <div class="badges">
@@ -738,6 +741,12 @@ ${p.faq && p.faq.length ? `<script type="application/ld+json">${JSON.stringify(f
       <span class="badge b">Free, no account</span>
       <span class="badge b">QC report included</span>
     </div>
+    <ul class="stats">
+      <li><b>${MATRIX_FROM.length * (MATRIX_TO.length - 1)}</b><span>format converters</span></li>
+      <li><b>${SPECIAL.length}</b><span>workflow tools</span></li>
+      <li><b>0</b><span>files uploaded</span></li>
+      <li><b>$0</b><span>free, no account</span></li>
+    </ul>
   </div>
 
   ${toolHTML(cfg)}
@@ -746,8 +755,8 @@ ${p.faq && p.faq.length ? `<script type="application/ld+json">${JSON.stringify(f
 
   ${p.faq && p.faq.length ? `<section class="faq prose"><h2>FAQ</h2>${p.faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('\n')}</section>` : ''}
 
-  <section>
-    <h2 style="font-size:20px">Related tools</h2>
+  <section class="sec">
+    <h2>Related tools</h2>
     <div class="links">
       ${links.filter((l) => l.href !== p.slug + '.html').slice(0, 12).map((l) => `<a href="${l.href}">${l.label}</a>`).join('')}
     </div>
@@ -755,10 +764,14 @@ ${p.faq && p.faq.length ? `<script type="application/ld+json">${JSON.stringify(f
 </main>
 
 <footer><div class="wrap">
+  <div class="foot-brand">
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true">S</span><b>Subtitle<i>Kit</i></b></a>
+    <span class="desc">${TAGLINE}</span>
+  </div>
   <div class="cols">
     ${footerCols.map(([h, ls]) => `<div><h4>${h}</h4>${ls.map((l) => `<a href="${l.href}">${l.label}</a>`).join('')}</div>`).join('')}
   </div>
-  <p style="margin-top:22px">${SITE} — ${TAGLINE}. Convert SRT, VTT, ASS/SSA, SBV, TTML/DFXP, LRC, CSV and TXT subtitles, fix sync, repair timing, check caption compliance and merge bilingual files. All processing happens in your browser.</p>
+  <p class="foot-bottom">${SITE} — ${TAGLINE}. Convert SRT, VTT, ASS/SSA, SBV, TTML/DFXP, LRC, CSV and TXT subtitles, fix sync, repair timing, check caption compliance and merge bilingual files. All processing happens in your browser.</p>
 </div></footer>
 
 <div class="toast" id="toast"></div>
